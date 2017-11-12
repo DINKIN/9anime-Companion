@@ -28,23 +28,41 @@ loadSettings([
         console.info("9anime Companion: Neutralizing ads");
         let head = document.querySelectorAll("head");
         let script = document.createElement("script");
-        script.innerText = `
-            window._msdurx = () => {
+        script.innerText =
+            // For 9anime
+            `window._msdurx = () => {
                 console.log("9anime Companion: 'Blocking popup...'");
-            };
-            window._elavfx = () => {
+            };` +
+            `window._elavfx = () => {
                 console.log("9anime Companion: 'Blocking popup...'");
-            };
-            Object.defineProperty(window, "_msdurx", {
+            };` +
+            `Object.defineProperty(window, "_msdurx", {
                 enumerable: true,
                 configurable: false,
                 writable: false
-            });
-            Object.defineProperty(window, "_elavfx", {
+            });` +
+            `Object.defineProperty(window, "_elavfx", {
                 enumerable: true,
                 configurable: false,
                 writable: false
-            })`;
+            });` +
+            // For bmovies
+            `window._zoqmokc = () => {
+                console.log("9anime Companion: 'Blocking popup...'");
+            };` +
+            `window._idxgts = () => {
+                console.log("9anime Companion: 'Blocking popup...'");
+            };` +
+            `Object.defineProperty(window, "_zoqmokc", {
+                enumerable: true,
+                configurable: false,
+                writable: false
+            });` +
+            `Object.defineProperty(window, "_idxgts", {
+                enumerable: true,
+                configurable: false,
+                writable: false
+            });`;
 
         // Script inject is required because thats the only way to
         // manipulate the global window object.
